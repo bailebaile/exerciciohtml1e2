@@ -1,0 +1,113 @@
+## EXERCICIO 1 ##
+
+
+<!DOCTYPE html>
+<html lang="pt-BR"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inital-scale=1.0"
+    <title>Bem-vindo!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+
+        }
+        input, button {
+            margin: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo!</h1>
+    <p>Digite seu nome:</p>
+    <input type="text" id="nomeInput" placeholder="Seu nome">
+    <button onclick="mostrarMensagem()">Clique aqui</button>
+    <p id="mensagem"></p>
+    
+    <script>
+        function mostrarMensagem() {
+            var nome = document.getElementById("nomeInput").value;
+            var mensagemElement = document.getElementById("mensagem");
+
+            if (nome.trim() !==  "") {
+                mensagemElement.innerHTML = "Olá," + nome + "! Seja bem-vindo á minha pagina";
+            } else {
+                mensagemElement.innerHTML = "Por favor, insira seu nome.";
+
+            }
+        }
+    </script>
+</body>
+<html>  
+
+----------------------------------------------------------------
+
+# EXERCICIO 2 #
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Lista</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Gerador de Lista</h1>
+    <input type="number" id="quantidadeInput" placeholder="Digite a quantidade de itens">
+    <button onclick="gerarLista()">Gerar Lista</button>
+    <div id="resultado"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+------------------------
+
+# CODIGO CSS 
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+input, button {
+    margin: 10px;
+    padding: 5px;
+}
+
+#resultado {
+    margin-top: 20px;
+}
+
+--------------------------
+
+# CODIGO JAVA SCRIPT # 
+
+function gerarLista() {
+    var quantidade = document.getElementById("quantidadeInput").value;
+    var resultadoDiv = document.getElementById("resultado");
+    
+   
+    resultadoDiv.innerHTML = "";
+
+    if (quantidade === "") {
+        resultadoDiv.innerHTML = "Por favor, insira um número válido.";
+    } else {
+        quantidade = parseInt(quantidade);
+        if (quantidade > 0) {
+            var lista = "<ul>";
+            for (var i = 1; i <= quantidade; i++) {
+                lista += "<li> Pedro Rangel " + i + "</li>";
+            }
+            lista += "</ul>";
+            resultadoDiv.innerHTML = lista;
+        } else {
+            resultadoDiv.innerHTML = "Por favor, insira um número maior que zero.";
+        }
+    }
+}
